@@ -1,0 +1,254 @@
+
+/* Universal styles */
+/*html, body {
+    font-family: "Raleway";
+    font-size: 15px;
+}
+
+:root {
+    --clr-text:
+    --clr-surface:
+    --clr-primary:
+    --clr-secondary:
+    --clr-accent:
+
+    --ff-base:
+    --ff-accent:
+}
+*/
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --clr-text: black;
+    --clr-surface: white;
+    --clr-surface-blue: rgba(93, 188, 244, 0.08);
+    --clr-surface-beige: rgba(248, 245, 241, 1);
+    --clr-primary: rgba(46, 44, 127, 1);
+    --clr-secondary: #5cbbf3;
+    --clr-accent: orange;
+
+    --fs-300: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+    --fs-400: clamp(1.35rem, calc(1.20rem + 0.73vw), 1.77rem);
+    --fs-500: clamp(1.62rem, calc(1.31rem + 1.53vw), 2.50rem);
+    --fs-600: clamp(1.94rem, calc(1.39rem + 2.77vw), 3.53rem);
+    --fs-700: clamp(2.33rem, calc(1.41rem + 4.63vw), 5.00rem);
+    --fs-800: clamp(2.80rem, calc(1.32rem + 7.42vw), 7.07rem);
+
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+.even-col {
+    display: flex;
+}
+.even-col > * {
+    flex-basis: 100%;
+}
+.text {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+    padding: .5rem;
+    background-color: var(--clr-surface-beige);
+}
+.card img {
+    width: 75%;
+}
+.card a {
+    font-size: var(--fs-300);
+    color: var(--clr-accent);
+}
+body {
+    font-family: sans-serif;
+    font-size: var(--fs-300);
+    line-height: 1.4;
+    color: var(--clr-text);
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+}
+h1 {
+    font-size: var(--fs-500);
+    text-align: left;
+    color: var(--clr-accent);
+}
+a {
+    text-decoration: none;
+}
+.wrapper {
+    width: min(100% - 1rem, 100ch);
+    margin-inline: auto;
+}
+section {
+    padding: 1.5rem 0;
+}
+.button {
+    display: inline-block;
+    padding: .5rem 2rem;
+    background-color: lightcoral;
+}
+.flow > * + * {
+    margin-top: 1em;
+}
+
+
+.left{
+    float: left;
+    padding: 1rem;
+}
+nav {
+    height: 60px;
+    background: var(--clr-secondary);
+
+}
+nav a:hover {
+    color: #c30111;
+}
+nav img {
+    width: 150px;
+    position: absolute;
+    left: 12px;
+}
+nav ul {
+    float: right;
+}
+nav ul li {
+    display: inline-block;
+    line-height: 60px;
+    margin: 0 15px;
+}
+nav ul li a {
+    position: relative;
+    color: var(--clr-primary);
+    font-size: 18px;
+    text-decoration: none;
+    letter-spacing: .05rem;
+}
+
+label #btn,
+label #cancel {
+    color: var(--clr-primary);
+    font-size: 24px;
+    float: right;
+    line-height: 60px;
+    margin-right: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+.blue {
+    background-color: var(--clr-surface-blue);
+}
+.beige {
+    background-color: var(--clr-surface-beige);
+}
+
+.product ul li, .product ol li {
+    padding-left: 1rem;
+    margin-left: 2rem;
+}
+
+
+@media (max-width: 870px) {
+    label #btn {
+        display: block;
+    }
+    nav ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: var(--clr-secondary);
+        top: 60px;
+        left: -100%;
+        text-align: center;
+        transition: all .3s;
+    }
+    nav ul li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+        font-size: 20px;
+    }
+    #check:checked ~ ul {
+        left: 0;
+    }
+    #check:checked ~ label #btn {
+        display: none;
+    }
+    #check:checked ~ label #cancel {
+        display: block;
+    }
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+ /*   position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: lightblue;
+    top: 90px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+}
+nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+    font-size: 20px;
+}
+label #btn {
+    display: block;
+}
+#check:checked ~ ul {
+    left: 0;
+}
+#check:checked ~ label #btn {
+    display: none;
+}
+#check:checked ~ label #cancel {
+    display: block;
+}
+
+
+@media (min-width: 976px) {
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+        list-style: none;
+    }
+    nav ul li{
+        display: inline-block;
+        margin-left: 2rem;
+    }
+    #toggle {
+        display: none;
+    }
+}
+*/
