@@ -45,31 +45,80 @@
     --fs-800: clamp(2.80rem, calc(1.32rem + 7.42vw), 7.07rem);
 
 }
+body {
+    font-family: sans-serif;
+    font-size: var(--fs-300);
+    line-height: 1.4;
+    color: var(--clr-text);
+}
+.progress {
+    display: none;
+}
+
+.hero {
+    background: var(--clr-surface-beige);
+    padding-block: 4rem;
+
+}
+.hero a, .hero a:visited {
+    color: white;
+}
+.hero h1, .about h2, .about p {
+    padding-bottom: 1rem;
+}
+.about {
+    padding-block: 4rem;
+}
+.call {
+    padding: 3rem;
+    height: 200px;
+    text-align: center;
+}
+.call p {
+    margin-bottom: 1rem;
+}
 img {
     max-width: 100%;
     display: block;
 }
+.even-columns {
+    display: flex;
+    grid: 2rem;
+    flex-direction: column;
+    align-items: center;
+}
+@media (min-width: 40em) {
+    .even-columns {
+        flex-direction: row;
+    }
+    .text {
+        padding-inline: 0;
+    }
+}
+
 .even-col {
     display: flex;
 }
+
 .even-col > * {
-    flex-basis: 100%;
+    flex: 100% 1 1;
 }
 .text {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 1rem 2rem;
+    flex: 3;
+  
+}
+.image {
+    flex: 2;
 }
 .grid {
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(3, 1fr);
 }
-
 .card {
     padding: .5rem;
-    background-color: var(--clr-surface-beige);
+    background-color: var(--clr-surface-blue);
 }
 .card img {
     width: 75%;
@@ -78,12 +127,7 @@ img {
     font-size: var(--fs-300);
     color: var(--clr-accent);
 }
-body {
-    font-family: sans-serif;
-    font-size: var(--fs-300);
-    line-height: 1.4;
-    color: var(--clr-text);
-}
+
 
 h1, h2, h3 {
     line-height: 1.2;
@@ -95,6 +139,7 @@ h1 {
 }
 a {
     text-decoration: none;
+    word-wrap: break-word;
 }
 .wrapper {
     width: min(100% - 1rem, 100ch);
@@ -102,11 +147,12 @@ a {
 }
 section {
     padding: 1.5rem 0;
+    clear: left;
 }
 .button {
     display: inline-block;
     padding: .5rem 2rem;
-    background-color: lightcoral;
+    border: var(--clr-accent) 2px solid;
 }
 .flow > * + * {
     margin-top: 1em;
@@ -115,7 +161,7 @@ section {
 
 .left{
     float: left;
-    padding: 1rem;
+    padding: 2.5rem;
 }
 nav {
     height: 60px;
@@ -171,7 +217,14 @@ label #cancel {
     padding-left: 1rem;
     margin-left: 2rem;
 }
+.cta {
+    text-decoration: underline;
+    color: var(--clr-accent);
+}
+.date {
+    color: var(--clr-accent);
 
+}
 
 @media (max-width: 870px) {
     label #btn {
